@@ -90,7 +90,7 @@ class BlogController extends AbstractController
         //elle permet aussi de faire des vérifications sur le formulaire (quelle est la méthode ? est-ce que les champs
         // sont tous remplis ? etc)
 
-        // dump($article);
+        // dump($article); //Fonctionne uniquement en dev, pas en production
         
         // 
         if($form->isSubmitted() && $form->isValid())
@@ -112,4 +112,25 @@ class BlogController extends AbstractController
         //     'formArticle' => $form
         // ]);
     }
+
+    /**
+     * @Route("/blog/delete/{id}", name="blog_delete")
+     */
+    public function delete(EntityManagerInterface $manager, $id, ArticleRepository $repo)
+    {
+        $article = $repo->find($id);
+
+        // remove() prepare la suppression d'un article
+        $manager->remove($article);
+
+        // Execution de la requete preparée
+        $manager->flush();
+
+        // addFlash() permet de créer un message de notification
+        // Le 1er argument est le type du message que l'on veut
+        // Le 2nd argument est le message
+        $this->addFlash('success', "L'article a bien été supprimé !");
+
+        return $this->redirectToRoute('app_blog');
+    } 
 }

@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "demoblog-heroku",
+            "connectString": "mysql://ev4nu7uuszx50qfg:h1toqvlpz37tcwz5@ilzyz0heng1bygi8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/om4bp1etuuxmmri9"
+        }
+    ]
+}

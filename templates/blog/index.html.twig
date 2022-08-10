@@ -6,6 +6,10 @@
 
 {% block body %}
 
+{% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">{{ message }}</div>
+{% endfor %}
+
 <section class="row articles">
 
     {% for article in tabArticles %}
