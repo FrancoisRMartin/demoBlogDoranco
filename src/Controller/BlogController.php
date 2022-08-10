@@ -90,7 +90,7 @@ class BlogController extends AbstractController
         //elle permet aussi de faire des vérifications sur le formulaire (quelle est la méthode ? est-ce que les champs
         // sont tous remplis ? etc)
 
-        dump($article);
+        // dump($article);
         
         // 
         if($form->isSubmitted() && $form->isValid())
