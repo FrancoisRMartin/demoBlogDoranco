@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>Création d'un article</h1>
+
+{# {{ form(formArticle) }} #}
+{# form() permet d'afficher un formulaire entier #}
+
+{{ form_start(formArticle) }}
+{# form_start() & form_end() permettent de délimiter un formulaire, de modifier ses champs, changer la méthode... #}
+
+{# form_widget() permet de gérer l'affichage d'un champ #}
+
+{{ form_row(formArticle.title, {
+    label: "Titre",
+    attr: {
+        placeholder: "Titre de l'article"
+    }
+}) }}
+
+{# form_row : affiche le champs + label, form_widget : affiche juste le champs #}
+{{ form_row(formArticle.content, { 
+    label: "Contenu",
+    attr: {
+        placeholder: "Contenu"
+    }
+}) }}
+{{ form_row(formArticle.image) }}
+
+<button type="submit" class="btn btn-primary mt-2">Enregistrer</button>
+
+{{ form_end(formArticle) }}
+
+{% endblock %}
